@@ -1,0 +1,57 @@
+{
+  "name": "xstate-v5-alpha-react-experiment",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/xstate-v5-alpha-react-experiment"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "xstate-v5-alpha-react-experiment:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "xstate-v5-alpha-react-experiment:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "xstate-v5-alpha-react-experiment:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/xstate-v5-alpha-react-experiment"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/xstate-v5-alpha-react-experiment"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
